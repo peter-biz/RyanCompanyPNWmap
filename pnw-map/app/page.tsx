@@ -17,14 +17,52 @@ Features:
 */
 
 //Trying to decide if im gonna draw that map or use a png of the map and overlay the features on top of it.
+
+'use client';
+import React from "react";
+import { NextPage } from "next";
+
 export default function Home() {
+
+  function initMap() {
+
+    
+  }
+
+  function currLocation() {
+    //get current location -- update every 5 seconds
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+
+    //update every 5 seconds
+    setInterval(function() {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
+    }, 5000);
+  }
+
+  function displayLocation() {
+    //display current location on map(as a pin) and on header telling you the building you're in
+    
+  }
+  
+
+
+  
+
   return (
     <>
-      <h1> Testing feature branch and aws amplify build/deploy</h1>
-      <h2>attempt2</h2>
+    
+     <h1>Vercel hosted pnw map</h1>
+      <div id="map"></div>
+      <button onClick={currLocation}>Get current location</button>
     </>
   );
-}
+} 
     
 
      
