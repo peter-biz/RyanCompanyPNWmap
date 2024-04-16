@@ -13,6 +13,9 @@ CS416 Ryan Company( Group 1 ) Interactive PNW Campus Map
 The main "page file" is the page.tsx file, this is the file that will be rendered when you go to "http://localhost:3000".
 This project is in typescript, which is pretty similar to javascript. If you are not familiar with typescript, you can still write javascript code in the typescript files.
 
+# NOTE:
+When you push to the main branch, it will automaically deploy to the Vercel project an will be displayed publicly on https://www.pnwmap.app/
+
 # Features to add
 * ... the map
 * Geolocation to find the user's location (peter)
