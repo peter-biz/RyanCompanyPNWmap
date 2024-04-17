@@ -19,47 +19,52 @@ Features:
 //Trying to decide if im gonna draw that map or use a png of the map and overlay the features on top of it.
 
 'use client';
-import React from "react";
+import { getLocation, building } from "./components/location.js";
 import { NextPage } from "next";
+import { render } from "react-dom";
+import React, { useRef, useEffect } from 'react';
 
 export default function Home() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  function initMap() {
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
 
-    
-  }
+    if (ctx) {
+      ctx.fillStyle = "blue";
+      ctx.fillRect(0, 0, 150, 75);
+    }
+  }, []);
+
 
   function currLocation() {
-    //get current location -- update every 5 seconds
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-    });
+    //get current location -- update every 5 seconds (imported from location.js)
+    getLocation();
+    console.log(building);
 
+    displayLocation();
     //update every 5 seconds
     setInterval(function() {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }, 5000);
+      currLocation();
+    }, 5000); 
   }
 
   function displayLocation() {
     //display current location on map(as a pin) and on header telling you the building you're in
     
+    //document.getElementById("map").innerHTML = "You are currently in " + building;
   }
-  
 
-
-  
+  //currLocation();
 
   return (
     <>
-    
-     <h1>Vercel hosted pnw map</h1>
       <div id="map"></div>
-      <button onClick={currLocation}>Get current location</button>
+      <button onClick={currLocation}>Get Current Location</button>
+      <canvas ref={canvasRef} />
+
+
     </>
   );
 } 
