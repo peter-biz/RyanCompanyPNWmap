@@ -19,7 +19,7 @@ Features:
 //Trying to decide if im gonna draw that map or use a png of the map and overlay the features on top of it.
 
 'use client';
-import { getLocation, building } from "./components/location.js";
+import { getLocation, building } from "./components/location.jsx";
 import { NextPage } from "next";
 import React, { useRef, useEffect } from 'react';
 
@@ -30,10 +30,14 @@ export default function Home() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
-    if (ctx) {
-      ctx.fillStyle = "blue";
-      ctx.fillRect(0, 0, 150, 75);
-    }
+    const image = document.getElementById("source") as HTMLImageElement;
+
+    image.addEventListener("load", () => {
+      ctx?.drawImage(image, 0, 0);
+    });
+
+  //  document.body.style.overflow = "visible"; //if set to hidden, disables scrolling all together :/, im jsut trying to hide it
+
   }, []);
 
 
@@ -50,7 +54,7 @@ export default function Home() {
   }
 
   function displayLocation() {
-    //display current location on map(as a pin) and on header telling you the building you're in
+    //display current location on map(as a pin) and on header(navbar, this might be better implement in the navbar file) telling you the building you're in
     
     //document.getElementById("map").innerHTML = "You are currently in " + building;
   }
@@ -59,9 +63,12 @@ export default function Home() {
 
   return (
     <>
-      <div id="map"></div>
       <button onClick={currLocation}>Get Current Location</button>
-      <canvas ref={canvasRef} />
+      <canvas id="canvas"></canvas>
+      <div >
+        <img id="source" src="pnw-map.png" alt="PNW Map" width="100%" height="100%" />
+      </div>  
+      
 
 
     </>
