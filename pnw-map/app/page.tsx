@@ -21,7 +21,6 @@ Features:
 'use client';
 import { getLocation, building } from "./components/location.js";
 import { NextPage } from "next";
-import { render } from "react-dom";
 import React, { useRef, useEffect } from 'react';
 
 export default function Home() {
