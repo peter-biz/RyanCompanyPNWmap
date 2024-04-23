@@ -63,12 +63,12 @@ export default function Home() {
 
   return (
     <>
-      <button onClick={currLocation}>Get Current Location</button>
-      <canvas id="canvas"></canvas>
-      <div >
-        <img id="source" src="pnw-map.png" alt="PNW Map" width="85%" height="200%" />
+    <button onClick={currLocation}>Get Current Location</button>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <img id="source" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
       </div>  
-    </>
+    <canvas id="canvas"></canvas>
+  </>
   );
 } 
     
