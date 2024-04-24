@@ -60,18 +60,37 @@ export default function Home() {
 
   }
 
+  function home() {
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d');
+    const image = document.getElementById("map_image") as HTMLImageElement;
+
+    ctx?.drawImage(image, 0, 0);
+    
+  }
+
+  function pageSearch() {
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+    const ctx = canvas.getContext('2d');
+    const image = document.getElementById("map_image") as HTMLImageElement;
+    const building = document.getElementById("buildingBar") as HTMLInputElement;
+    const floor = document.getElementById("floorBar") as HTMLInputElement;
+
+    search(image, building, floor);
+  }
+
+
   //currLocation();
 
   return (
     <>
-    <head>
-      <script src="./components/floor_plan.jsx"></script>
-    </head>
+    <h1>PNW Campus Map</h1>
     <section id="controls">
       <button onClick={home}>Home</button>
       <button onClick={currLocation}>Get Current Location</button>
       Building: <input id="buildingBar" /> Floor: <input id="floorBar" />
-      <button onClick={search}>Search</button>
+      <button onClick={pageSearch}>Search</button>
     </section>
     <section id="image_section">
       <div style={{ display: "flex", justifyContent: "center" }}>

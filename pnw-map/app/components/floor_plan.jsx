@@ -4,10 +4,8 @@ function home(){
     document.getElementById("map_image").src = "pnw-map.png";
 }
 
-function search(){
-    const image = document.getElementById("map_image");
-    const building = document.getElementById("buildingBar").value;
-    const floor = document.getElementById("floorBar").value;
+function search(image, building, floor){
+
     
     console.log(building);
 
