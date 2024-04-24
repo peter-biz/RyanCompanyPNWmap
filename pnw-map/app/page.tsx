@@ -60,12 +60,12 @@ export default function Home() {
 
   }
 
-  function home() {
-    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-    const ctx = canvas.getContext('2d');
-    const image = document.getElementById("map_image") as HTMLImageElement;
+  function events() {
+    console.log("Events wip");
+  }
 
-    ctx?.drawImage(image, 0, 0);
+  function home() {
+    home();
     
   }
 
@@ -90,7 +90,8 @@ export default function Home() {
     <h2>PNW Campus Map</h2>
     <section id="controls">
       <button onClick={home}>Home</button> <br /> <br />
-      Building: <input id="buildingBar" /> Floor: <input id="floorBar" /> 
+      <button onClick={events}>Events</button> <br /> <br />
+      Building: <input id="buildingBar" /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
       <button onClick={pageSearch}>Search</button> <br /> <br />
       <button onClick={currLocation}>Get Current Location</button>
     </section>
