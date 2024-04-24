@@ -8,7 +8,6 @@ function search(image, building, floor){
 
     
     console.log(building);
-    building = building.trim().toUpperCase();
 
     if(building == "Classroom Office Building" || building == "clo"){
              if(floor == 1) image.src = "CLO_1.png";
