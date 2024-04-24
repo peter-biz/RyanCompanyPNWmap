@@ -72,10 +72,12 @@ export default function Home() {
   function pageSearch() {
     const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
-    const ctx = canvas.getContext('2d');
     const image = document.getElementById("map_image") as HTMLImageElement;
-    const building = document.getElementById("buildingBar") as HTMLInputElement;
-    const floor = document.getElementById("floorBar") as HTMLInputElement;
+    const buildingInput = document.getElementById("buildingBar") as HTMLInputElement;
+    const floorInput = document.getElementById("floorBar") as HTMLInputElement;
+
+    const building = buildingInput.value;
+    const floor = floorInput.value;
 
     search(image, building, floor);
   }
@@ -85,16 +87,16 @@ export default function Home() {
 
   return (
     <>
-    <h1>PNW Campus Map</h1>
+    <h2>PNW Campus Map</h2>
     <section id="controls">
-      <button onClick={home}>Home</button>
+      <button onClick={home}>Home</button> <br /> <br />
+      Building: <input id="buildingBar" /> Floor: <input id="floorBar" /> 
+      <button onClick={pageSearch}>Search</button> <br /> <br />
       <button onClick={currLocation}>Get Current Location</button>
-      Building: <input id="buildingBar" /> Floor: <input id="floorBar" />
-      <button onClick={pageSearch}>Search</button>
     </section>
     <section id="image_section">
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img id="map_image" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
+        <img id="map_image" src="pnw-map.png" alt="PNW Map" />
       </div>  
     </section>
     <canvas id="canvas"></canvas>
