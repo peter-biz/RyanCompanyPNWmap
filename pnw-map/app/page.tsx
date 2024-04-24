@@ -95,6 +95,7 @@ export default function Home() {
       Building: <input id="buildingBar"  onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
       <button onClick={pageSearch}>Search</button> <br /> <br />
       <button onClick={currLocation}>Get Current Location</button>
+      Location: <p id="location"></p>
     </section>
     <section id="image_section">
       <div style={{ display: "flex", justifyContent: "center" }}>
