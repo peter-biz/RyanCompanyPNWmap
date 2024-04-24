@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <>
     <head>
-      <script>src="./components/floor_plan.jsx"</script>
+      <script src="./components/floor_plan.jsx"></script>
     </head>
     <section id="controls">
       <button onClick={home}>Home</button>
