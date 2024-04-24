@@ -53,14 +53,16 @@ export default function Home() {
     setInterval(function() {
       currLocation();
     }, 5000); 
+    
   }
 
   function displayLocation() {
     console.log(building);
 
     //display location on webpage as text TODO: 
-    const location = document.createElement("p");
-    location.innerHTML = "Current Location: " + building;
+    const location = document.getElementById("location") as HTMLParagraphElement;
+    location.innerHTML = building;
+
 
   }
 
@@ -83,8 +85,7 @@ export default function Home() {
     search(image, building, floor);
   }
 
-
-  //currLocation();
+  //currLocation();  
 
   return (
     <>
