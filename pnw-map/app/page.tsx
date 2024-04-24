@@ -91,7 +91,7 @@ export default function Home() {
     <>
     <h2>PNW Campus Map</h2>
     <section id="controls">
-      <button onClick={home}>Home</button> <br /> <br />
+      <button onClick={home}>Home</button>
       <button onClick={events}>Events</button> <br /> <br />
       Building: <input id="buildingBar"  onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
       <button onClick={pageSearch}>Search</button> <br /> <br />
