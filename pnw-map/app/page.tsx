@@ -68,10 +68,7 @@ export default function Home() {
     console.log("Events wip");
   }
 
-  function home() {
-    home();
-    
-  }
+
 
   function pageSearch() {
     const canvas = document.getElementById("canvas") as HTMLCanvasElement;
