@@ -58,6 +58,10 @@ export default function Home() {
   function displayLocation() {
     console.log(building);
 
+    //display location on webpage as text
+    const location = document.createElement("p");
+    location.innerHTML = "Current Location: " + building;
+
   }
 
   function events() {
