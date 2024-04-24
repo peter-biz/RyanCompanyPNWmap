@@ -32,7 +32,7 @@ export default function Home() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
-    const image = document.getElementById("source") as HTMLImageElement;
+    const image = document.getElementById("map_image") as HTMLImageElement;
 
     image.addEventListener("load", () => {
       ctx?.drawImage(image, 0, 0);
@@ -64,15 +64,20 @@ export default function Home() {
 
   return (
     <>
+    <head>
+      <script>src="./components/floor_plan.jsx"</script>
+    </head>
     <section id="controls">
+      <button onClick={home}>Home</button>
       <button onClick={currLocation}>Get Current Location</button>
       Building: <input id="buildingBar" /> Floor: <input id="floorBar" />
       <button onClick={search}>Search</button>
-      <button onClick={home}>Home</button>
     </section>
+    <section id="image_section">
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img id="source" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
+        <img id="map_image" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
       </div>  
+    </section>
     <canvas id="canvas"></canvas>
   </>
   );
