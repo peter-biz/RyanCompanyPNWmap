@@ -22,6 +22,7 @@ Features:
 import { getLocation, building } from "./components/location.jsx";
 import { NextPage } from "next";
 import React, { useRef, useEffect } from 'react';
+import { search, home} from "./components/floor_plan.jsx";
 import "./globals.css";
 
 export default function Home() {
@@ -63,7 +64,12 @@ export default function Home() {
 
   return (
     <>
-    <button onClick={currLocation}>Get Current Location</button>
+    <section id="controls">
+      <button onClick={currLocation}>Get Current Location</button>
+      Building: <input id="buildingBar" /> Floor: <input id="floorBar" />
+      <button onClick={search}>Search</button>
+      <button onClick={home}>Home</button>
+    </section>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img id="source" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
       </div>  
