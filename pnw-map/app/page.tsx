@@ -22,6 +22,7 @@ Features:
 import { getLocation, building } from "./components/location.jsx";
 import { NextPage } from "next";
 import React, { useRef, useEffect } from 'react';
+import { search, home} from "./components/floor_plan.jsx";
 import "./globals.css";
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
-    const image = document.getElementById("source") as HTMLImageElement;
+    const image = document.getElementById("map_image") as HTMLImageElement;
 
     image.addEventListener("load", () => {
       ctx?.drawImage(image, 0, 0);
@@ -52,21 +53,56 @@ export default function Home() {
     setInterval(function() {
       currLocation();
     }, 5000); 
+    
   }
 
   function displayLocation() {
     console.log(building);
 
+    //display location on webpage as text TODO: 
+    const location = document.getElementById("location") as HTMLParagraphElement;
+    location.innerHTML = building;
+
+
   }
 
-  //currLocation();
+  function events() {
+    console.log("Events wip");
+  }
+
+
+
+  function pageSearch() {
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+    const image = document.getElementById("map_image") as HTMLImageElement;
+    const buildingInput = document.getElementById("buildingBar") as HTMLInputElement;
+    const floorInput = document.getElementById("floorBar") as HTMLInputElement;
+
+    const building = buildingInput.value;
+    const floor = floorInput.value;
+
+    search(image, building, floor);
+  }
+
+  //currLocation();  
 
   return (
     <>
-    <button onClick={currLocation}>Get Current Location</button>
+    <h2>PNW Campus Map</h2>
+    <section id="controls">
+      <button onClick={home}>Home</button> <br /> <br />
+      <button onClick={events}>Events</button> <br /> <br />
+      Building: <input id="buildingBar"  onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
+      <button onClick={pageSearch}>Search</button> <br /> <br />
+      <button onClick={currLocation}>Get Current Location</button>
+      Location: <p id="location"></p>
+    </section>
+    <section id="image_section">
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img id="source" src="pnw-map.png" alt="PNW Map" width="90%" height="175%"  />
+        <img id="map_image" src="pnw-map.png" alt="PNW Map" />
       </div>  
+    </section>
     <canvas id="canvas"></canvas>
   </>
   );
