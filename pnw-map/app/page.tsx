@@ -58,7 +58,7 @@ export default function Home() {
   function displayLocation() {
     console.log(building);
 
-    //display location on webpage as text
+    //display location on webpage as text TODO: 
     const location = document.createElement("p");
     location.innerHTML = "Current Location: " + building;
 
@@ -95,7 +95,7 @@ export default function Home() {
     <section id="controls">
       <button onClick={home}>Home</button> <br /> <br />
       <button onClick={events}>Events</button> <br /> <br />
-      Building: <input id="buildingBar" /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
+      Building: <input id="buildingBar"  onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
       <button onClick={pageSearch}>Search</button> <br /> <br />
       <button onClick={currLocation}>Get Current Location</button>
     </section>
