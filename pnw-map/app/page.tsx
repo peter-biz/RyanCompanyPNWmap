@@ -38,8 +38,6 @@ export default function Home() {
       ctx?.drawImage(image, 0, 0);
     });
 
-  //  document.body.style.overflow = "visible"; //if set to hidden, disables scrolling all together :/, im jsut trying to hide it
-
   }, []);
 
 
@@ -50,10 +48,10 @@ export default function Home() {
 
     displayLocation();
     //update every 5 seconds
-    setInterval(function() {
+    setInterval(function () {
       currLocation();
-    }, 5000); 
-    
+    }, 5000);
+
   }
 
   function displayLocation() {
@@ -89,24 +87,24 @@ export default function Home() {
 
   return (
     <>
-    <h2>PNW Campus Map</h2>
-    <section id="controls">
-      <button onClick={home}>Home</button>
-      <button onClick={events}>Events</button> <br /> <br />
-      Building: <input id="buildingBar"  onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> 
-      <button onClick={pageSearch}>Search</button> <br /> <br />
-      <button onClick={currLocation}>Get Current Location</button>
-      Location: <p id="location"></p>
-    </section>
-    <section id="image_section">
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img id="map_image" src="pnw-map.png" alt="PNW Map" />
-      </div>  
-    </section>
-    <canvas id="canvas"></canvas>
-  </>
+      <h2>PNW Campus Map - v1</h2>
+      <section id="controls">
+        <button onClick={home}>Home</button>
+        <button onClick={events}>Events</button> <br /> <br />
+        Building: <input id="buildingBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} /> Floor: <input id="floorBar" onKeyDown={(e) => { if (e.key === 'Enter') pageSearch(); }} />
+        <button onClick={pageSearch}>Search</button> <br /> <br />
+        <button onClick={currLocation}>Get Current Location</button>
+        Location: <p id="location"></p>
+      </section>
+      <section id="image_section">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img id="map_image" src="pnw-map.png" alt="PNW Map" style={{ height: "100%", width: "100%" }} />
+        </div>
+      </section>
+      <canvas id="canvas"></canvas>
+    </>
   );
-} 
+}
     
 
      
